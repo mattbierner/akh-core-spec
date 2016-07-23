@@ -94,7 +94,7 @@ const Semigroup = module.exports.Semigroup = (Instance, plus) => {
 }
 
 
-const LiftInner = (() => {
+const LiftInner = module.exports.LiftInner = (() => {
     const liftInner = (lift, outer, inner) => {
         if (inner.liftInner)
             outer.liftInner = liftInner(
