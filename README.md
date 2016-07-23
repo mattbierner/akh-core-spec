@@ -1,0 +1,1 @@
+Core specifications for [Akh](https://github.com/mattbierner/akh)
