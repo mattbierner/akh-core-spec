@@ -21,8 +21,8 @@ const Applicative = module.exports.Applicative = (Instance, of, ap) => {
             return of(f).ap(this)
         })
     
-    Instance.ac = liftA2.bind(null, bind)
-    Instance.prototype.ac = function(m) { return liftA2(bind, this, m) }
+    Instance.ac = base.liftA2.bind(null, bind)
+    Instance.prototype.ac = function(m) { return base.liftA2(bind, this, m) }
     
     return Instance
 }
