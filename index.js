@@ -94,22 +94,22 @@ const Semigroup = module.exports.Semigroup = (Instance, plus) => {
 }
 
 
-const LiftInner = module.exports.LiftInner = (() => {
-    const liftInner = (lift, outer, inner) => {
-        if (inner.liftInner)
-            outer.liftInner = liftInner(
-                lift,
-                x => lift(inner.liftInner(x)),
-                inner.liftInner)
-        return outer
+var liftInner = (lift, outer, inner) => {
+    if (inner.liftInner) {
+        var y = inner.liftInner
+        outer.liftInner = liftInner(lift, z => lift(y(z)), inner.liftInner)
     }
-    return (Instance, m, lift) => {
-        if (m.lift)
-            Instance.liftInner = Instance.prototype.liftInner = liftInner(lift, x => lift(m.lift(x)), m)
-        
-        return Instance
+    return outer
+}
+
+const LiftInner = module.exports.LiftInner = (Instance, m, lift) => {
+    if (m.lift) {
+        var y = m.lift
+        Instance.prototype.liftInner = liftInner(lift, z => lift(y(z)), m)
+        Instance.liftInner = Instance.prototype.liftInner
     }
-})
+    return Instance
+}
 
 /**
  * Define monad transformer of `Instance`.

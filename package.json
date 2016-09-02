@@ -1,22 +1,30 @@
 {
-  "name": "akh.core.spec",
-  "version": "0.0.2",
-  "description": "Core specifications for akh",
-  "author": "Matt Bierner",
-  "license": "MIT",
-  "keywords": [
-    "monad transformer",
-    "akh"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mattbierner/akh-core-spec.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mattbierner/akh-core-spec/issues"
-  },
-  "main": "index.js",
-  "dependencies": {
-    "akh.core": "0.x"
-  }
+    "name": "akh.core.spec",
+    "version": "0.0.3",
+    "description": "Core specifications for akh",
+    "author": "Matt Bierner",
+    "license": "MIT",
+    "keywords": [
+        "monad transformer",
+        "akh"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mattbierner/akh-core-spec.git"
+    },
+    "bugs": {
+        "url": "https://github.com/mattbierner/akh-core-spec/issues"
+    },
+    "main": "index.js",
+    "dependencies": {
+        "akh.core": "0.x"
+    },
+    "devDependencies": {
+        "akh.state": "0.0.0",
+        "chai": "*",
+        "mocha": "*"
+    },
+    "scripts": {
+        "test": "mocha ./tests"
+    }
 }
